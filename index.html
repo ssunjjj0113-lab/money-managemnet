@@ -6,8 +6,13 @@
 <meta name="theme-color" content="#2146b8">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="가계부">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<script>window.LEDGER_STANDALONE = true;</script>
 </head>
 <body>
 <title>월간 가계부</title>
@@ -701,6 +706,42 @@ table.year .empty { color: var(--line); }
     const note = document.createElement("p"); note.className = "note";
     note.textContent = "관계성 지출은 고정지출의 '11청감+각종후원'과 달력의 '경조사·선물', '모임·한턱' 분류를 합친 금액이에요. 자기계발은 달력에서 '자기계발'로 분류한 지출이에요.";
     root.appendChild(note);
+    if (window.LEDGER_STANDALONE) root.appendChild(backupBox());
+  }
+
+  /* ---------- backup (standalone app only) ---------- */
+  function backupBox() {
+    const sec = document.createElement("section"); sec.className = "sec";
+    sec.innerHTML = `<div class="sec-h"><h2>백업·복원</h2><span class="tot">기기를 바꾸거나 다른 폰으로 옮길 때</span></div>`;
+    const box = document.createElement("div"); box.className = "export";
+    const btns = document.createElement("div"); btns.className = "btns";
+    const msg = document.createElement("div"); msg.className = "msg"; msg.setAttribute("role", "status");
+    const exp = document.createElement("button"); exp.className = "btn"; exp.textContent = "백업 파일 저장";
+    exp.addEventListener("click", () => {
+      const all = { config: { sections: st.config.sections }, subs: { list: st.subs }, todos: { list: st.todos }, ...st.months };
+      const blob = new Blob([JSON.stringify({ app: "monthly-ledger", v: 1, savedAt: new Date().toISOString(), data: all })], { type: "application/json" });
+      const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+      const t = new Date(); a.download = `가계부-백업-${t.getFullYear()}${String(t.getMonth() + 1).padStart(2, "0")}${String(t.getDate()).padStart(2, "0")}.json`;
+      document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+      msg.style.color = ""; msg.textContent = "백업 파일을 저장했어요. 다운로드 폴더를 확인하세요.";
+    });
+    const lab = document.createElement("label"); lab.className = "btn"; lab.textContent = "백업 파일 불러오기"; lab.htmlFor = "restoreFile"; lab.style.display = "inline-block";
+    const file = document.createElement("input"); file.type = "file"; file.id = "restoreFile"; file.accept = "application/json,.json"; file.hidden = true;
+    file.addEventListener("change", async () => {
+      const f = file.files[0]; if (!f) return;
+      try {
+        const j = JSON.parse(await f.text());
+        if (j.app !== "monthly-ledger" || !j.data) throw new Error("bad");
+        st.months = {}; absorb(j.data);
+        for (const id of Object.keys(j.data)) await store.write(id, j.data[id]);
+        render(); msg.style.color = ""; msg.textContent = "백업을 불러왔어요.";
+      } catch (e) { msg.style.color = "var(--bad)"; msg.textContent = "이 가계부의 백업 파일이 아니에요. '백업 파일 저장'으로 만든 .json 파일을 골라 주세요."; }
+      file.value = "";
+    });
+    btns.append(exp, lab, file); box.append(btns, msg);
+    const p = document.createElement("p"); p.className = "note"; p.textContent = "앱의 기록은 이 기기에만 저장돼요. 한 달에 한 번쯤 백업 파일을 저장해 두세요. 불러오면 지금 기기의 기록이 백업 내용으로 바뀌어요.";
+    box.appendChild(p); sec.appendChild(box);
+    return sec;
   }
 
   /* ---------- to-do ---------- */
@@ -867,5 +908,10 @@ table.year .empty { color: var(--line); }
 })();
 </script>
 
+<script>
+if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+}
+</script>
 </body>
 </html>
