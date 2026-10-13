@@ -465,6 +465,14 @@ button.chip { background: transparent; cursor: pointer; font-family: inherit; }
 .name.tap:hover .nm { text-decoration: underline dotted; text-underline-offset: 3px; }
 .plabel { font-size: 13px; font-weight: 700; justify-self: start; }
 .col-name { font: inherit; font-size: 11px; font-weight: 700; text-align: right; width: 100%; min-width: 0; border: var(--bw) solid var(--hair); border-radius: 8px; padding: 2px 6px; background: var(--surface); color: var(--ink); }
+.yf { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; padding: 14px 16px; align-items: start; }
+.yf-year { display: grid; gap: 6px; }
+.yf-txt { display: grid; gap: 6px; min-width: 0; }
+.yf-txt .no { font-size: 11px; font-weight: 700; color: var(--muted); }
+.yf-txt h3 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 19px; }
+.yf-txt p { margin: 0; font-size: 13px; }
+html[data-skin="swiss"] .yf-txt h3 { font-weight: 800; letter-spacing: -0.04em; }
+html[data-skin="ocean"] .yf-txt h3 { font-family: var(--display); }
 /* theme picker */
 .skins { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; padding: 14px 16px; }
 .skin { border: var(--bw) solid var(--hair); border-radius: 14px; background: var(--surface); padding: 6px; display: grid; gap: 6px; text-align: left; color: var(--ink); }
@@ -1130,7 +1138,11 @@ button.chip { background: transparent; cursor: pointer; font-family: inherit; }
       }
       return { y, pillars, el, gc, strong, dS, daeun };
     }
-    return { calc, ST, STH, BR, BRH, SE, BE, EL };
+    const godOf = (dS, s) => { const de = SE[dS], te = SE[s], same = s % 2 === dS % 2;
+      if (te === de) return same ? "비견" : "겁재"; if ((de + 1) % 5 === te) return same ? "식신" : "상관";
+      if ((de + 2) % 5 === te) return same ? "편재" : "정재"; if ((te + 2) % 5 === de) return same ? "편관" : "정관"; return same ? "편인" : "정인"; };
+    const year = (Y, dS) => { const s = (((Y - 4) % 10) + 10) % 10, b = (((Y - 4) % 12) + 12) % 12; const gs = godOf(dS, s), gb = godOf(dS, BMAIN[b]); return { s, b, gs, gb, ggs: GROUP[gs], ggb: GROUP[gb] }; };
+    return { calc, year, ST, STH, BR, BRH, SE, BE, EL };
   })();
   const DM = ["곧게 뻗는 큰 나무", "유연한 풀과 덩굴", "환하게 비추는 태양", "은은하게 밝히는 촛불", "넓고 묵직한 산", "곡식을 키우는 밭", "단단한 원석", "다듬어진 보석", "넓은 바다와 강", "이슬과 빗물"];
   const DAEUN_TXT = {
@@ -1141,6 +1153,25 @@ button.chip { background: transparent; cursor: pointer; font-family: inherit; }
     인성: "배움·준비의 시기. 자격·공부·문서가 다음 단계를 열어 줌"
   };
 
+  const EL_RULES = {
+    0: { lack: { h: "장기 계획을 글로 적기", p: "목(성장·계획) 기운이 없어요. 1년·5년 목표 금액을 숫자로 적어 두면 돈이 방향을 잡아요.", m: "save" },
+         over: { h: "벌이는 일은 하나씩", p: "목 기운이 넘쳐 새로 시작하고 싶은 게 많아요. 투자·부업은 한 번에 하나만 키우세요.", m: "spec" } },
+    1: { lack: { h: "돈 흐름을 눈에 보이게", p: "화(드러냄) 기운이 없어 돈이 어디로 가는지 흐릿해지기 쉬워요. 달력에 바로 적어 눈에 보이게 하세요.", m: "record" },
+         over: { h: "결제 전 하루 기다리기", p: "화 기운이 넘쳐 기분·과시 소비가 빨라요. 큰 결제는 장바구니에 하루 묵혀 두세요.", m: "card" } },
+    2: { lack: { h: "비상금으로 중심 잡기", p: "토(저장·안정) 기운이 없어 돈을 붙잡아 두는 힘이 약해요. 생활비 3개월치 비상금 통장부터 만드세요.", m: "fixed" },
+         over: { h: "쌓기만 말고 굴리기", p: "토 기운이 넘쳐 안전하게 묵혀 두려는 성향이 강해요. 현금만 쌓지 말고 일부는 꾸준히 굴리세요.", m: "save" } },
+    3: { lack: { h: "정리하는 날 정하기", p: "금(결단·정리) 기운이 없어 끊어 내는 걸 미루기 쉬워요. 매달 하루는 구독·자동결제를 정리하세요.", m: "subs" },
+         over: { h: "숨 쉴 예산 남기기", p: "금 기운이 넘쳐 스스로에게 빡빡해요. 너무 조이면 한 번에 터지니 나를 위한 예산을 따로 두세요.", m: "card" } },
+    4: { lack: { h: "현금 흐름 여유 두기", p: "수(흐름·유동성) 기운이 없어 돈이 막히면 답답해져요. 바로 꺼낼 수 있는 현금을 일정 비율 남겨 두세요.", m: "fixed" },
+         over: { h: "흘러가기 전에 가두기", p: "수 기운이 넘쳐 돈이 물처럼 빠져나가기 쉬워요. 들어오자마자 자동이체로 저축 통장에 가두세요.", m: "save" } }
+  };
+  const YEAR_TXT = {
+    비겁: "나가는 돈과 사람이 많아지는 해. 큰 지출·금전 거래는 한 번 더 미루세요.",
+    식상: "실력이 돈이 되는 해. 부업·자기계발에 쓰는 돈이 다시 돌아와요.",
+    재성: "돈이 크게 오가는 해. 수입이 늘면 저축률도 같이 올려 두세요.",
+    관성: "책임과 고정비가 함께 늘어나는 해. 보험·대출·고정지출을 점검하세요.",
+    인성: "준비와 공부의 해. 계약서·문서를 꼼꼼히 보고 자격에 투자하세요."
+  };
   function sajuRules(r) {
     const g = r ? r.gc : null, out = [];
     const add = (o) => { if (!out.some((x) => x.h === o.h)) out.push(o); };
@@ -1156,13 +1187,24 @@ button.chip { background: transparent; cursor: pointer; font-family: inherit; }
       if (g.관성 >= 2) add({ h: "꾸준한 적립형이 강점", p: "관성이 있어 규칙과 꾸준함이 무기예요. 청약·연금·적립식처럼 정해진 루틴형 저축이 오래 가요.", m: "split" });
       else if (g.관성 === 0) add({ h: "지출 상한을 스스로 정하기", p: "관성이 약해 외부 틀이 적은 편이에요. 카드 예산과 지출 상한을 직접 정해 두는 게 브레이크가 돼요.", m: "card" });
       if (g.인성 >= 3) add({ h: "공부는 짧게, 실행은 소액부터", p: "인성이 많아 배우고 고민하는 힘이 강하지만 실행이 늦을 수 있어요. 작게 먼저 해 보고 키우세요.", m: "spec" });
+      if (g.식상 === 0) add({ h: "작은 부수입부터 연습", p: "식상(만들어 내는 힘)이 원국에 없어 월급 말고 다른 수입 통로가 잘 안 생겨요. 작게라도 내 손으로 버는 경험을 쌓아 보세요.", m: "skill" });
+      if (g.인성 === 0) add({ h: "큰 결정 전 하루 조사", p: "인성(따져 보는 힘)이 약해 감으로 결정하기 쉬워요. 투자·계약 전에는 하루 정도 비교하고 정리해 보세요.", m: "spec" });
+      if (g.비겁 === 0) add({ h: "내 몫 먼저 떼기", p: "비겁(나를 지키는 힘)이 없어 남을 챙기다 내 몫을 놓치기 쉬워요. 나를 위한 저축을 맨 먼저 떼세요.", m: "save" });
       if (!r.strong) add({ h: "확장보다 지키기 먼저", p: "일간 힘이 약한 편이라 여러 투자를 한꺼번에 벌이면 버거워요. 고정지출을 낮추고 비상금부터 단단히.", m: "fixed" });
       else if (g.재성 >= 1) add({ h: "벌 때 같이 쌓기", p: "일간이 재성을 감당할 힘이 있어요. 수입이 늘 때 저축률도 같이 올려 두세요.", m: "save" });
     }
-    add({ h: "선저축 자동화", p: "월급날 저축·투자분을 자동이체로 먼저 떼고 남은 돈으로 생활하세요.", m: "save" });
-    add({ h: "통장을 목적별로 쪼개기", p: "소비·저축·투자·비상금 계좌를 나눠 두면 돈의 흐름이 한눈에 보여요.", m: "split" });
-    add({ h: "기록이 곧 돈", p: "쓴 돈을 바로 적는 습관만으로도 새는 지출이 줄어요.", m: "record" });
-    return out.slice(0, 5);
+    const core = out.splice(0, 4); out.length = 0; core.forEach(add);
+    if (r) {
+      const tot = r.el.reduce((a, b) => a + b, 0), elOut = [];
+      r.el.forEach((n, i) => { if (n === 0) elOut.push({ ...EL_RULES[i].lack, tag: SAJU.EL[i] + " 없음" }); else if (n / tot >= 0.4) elOut.push({ ...EL_RULES[i].over, tag: SAJU.EL[i] + " 많음" }); });
+      elOut.slice(0, 2).forEach(add);
+    }
+    for (const b of [
+      { h: "선저축 자동화", p: "월급날 저축·투자분을 자동이체로 먼저 떼고 남은 돈으로 생활하세요.", m: "save" },
+      { h: "통장을 목적별로 쪼개기", p: "소비·저축·투자·비상금 계좌를 나눠 두면 돈의 흐름이 한눈에 보여요.", m: "split" },
+      { h: "기록이 곧 돈", p: "쓴 돈을 바로 적는 습관만으로도 새는 지출이 줄어요.", m: "record" }
+    ]) { if (out.length >= 3) break; add(b); }
+    return out.slice(0, 6);
   }
 
   function renderMore() {
@@ -1181,7 +1223,8 @@ button.chip { background: transparent; cursor: pointer; font-family: inherit; }
       record: `<span>${st.m}월 달력 기록</span><b>${cal.length}건</b>`,
       split: `<span>${secName("save", "저축")} 계좌</span><b>${(st.config.sections.find((x) => x.id === "save")?.items || []).length}개</b>`,
       card: `<span>${st.m}월 ${secName("card", "카드값")} 실제 / 예산</span><b class="${cd.g && cd.a > cd.g ? "ng" : cd.g ? "ok" : ""}">${fmt(cd.a)} / ${fmt(cd.g)}</b>`,
-      fixed: `<span>${secName("fixed", "고정지출")} / 수입</span><b>${d.income ? Math.round(fx.a / d.income * 100) + "%" : "–"}</b>`
+      fixed: `<span>${secName("fixed", "고정지출")} / 수입</span><b>${d.income ? Math.round(fx.a / d.income * 100) + "%" : "–"}</b>`,
+      subs: (() => { const act = st.subs.filter((x) => x.status !== "cancel"); return `<span>사용 중 구독</span><b>${act.length}개 · 월 ${fmt(act.reduce((a, x) => a + (x.price || 0), 0))}</b>`; })()
     };
     const pf = st.profile || {};
     let r = null; try { if (pf.birth) r = SAJU.calc(pf); } catch (e) { r = null; }
@@ -1231,12 +1274,30 @@ button.chip { background: transparent; cursor: pointer; font-family: inherit; }
     }
     root.appendChild(ms);
 
+    // 올해의 돈 흐름 (세운 + 대운)
+    if (r) {
+      const Y = st.y, yr = SAJU.year(Y, r.dS), age = Y - r.y;
+      let du = null; if (r.daeun) r.daeun.forEach((x) => { if (age >= x.age) du = x; });
+      const ys = document.createElement("section"); ys.className = "sec yearflow";
+      ys.innerHTML = `<div class="sec-h"><h2>${Y}년 돈 흐름</h2><span class="tot">${SAJU.ST[yr.s]}${SAJU.BR[yr.b]}년 · ${age}세 무렵</span></div>
+        <div class="yf">
+          <div class="yf-year"><span class="ph e${SAJU.SE[yr.s]}">${SAJU.STH[yr.s]}<small>${SAJU.ST[yr.s]}</small></span><span class="ph e${SAJU.BE[yr.b]}">${SAJU.BRH[yr.b]}<small>${SAJU.BR[yr.b]}</small></span></div>
+          <div class="yf-txt">
+            <span class="no">올해 · ${yr.gs}(${yr.ggs}) / ${yr.gb}(${yr.ggb})</span>
+            <h3>${yr.ggs} 기운의 해</h3>
+            <p>${YEAR_TXT[yr.ggs]}${yr.ggb !== yr.ggs ? " 하반기로 갈수록 " + YEAR_TXT[yr.ggb].replace(/^[^.]*해\. /, "") : ""}</p>
+            ${du ? `<span class="no">지금 대운 · ${SAJU.ST[du.s]}${SAJU.BR[du.b]} (${du.age}세~) · ${du.group}</span><p>${DAEUN_TXT[du.group]}.${du.group === yr.ggs ? " 대운과 올해가 같은 기운이라 이 흐름이 특히 강해요." : ""}</p>` : r.daeun ? "" : `<p class="note">성별을 고르면 지금 대운도 함께 보여 드려요.</p>`}
+          </div>
+        </div>`;
+      root.appendChild(ys);
+    }
+
     // 원칙
     const rules = sajuRules(r);
     const rs = document.createElement("section");
     rs.innerHTML = `<div class="sec-h plain" style="background:none;border:0;padding:0 0 8px"><h2>${r ? "내 사주로 본 돈 관리 원칙" : "돈 관리 기본 원칙"}</h2><span class="tot">이번 달 기록과 함께 보기</span></div>`;
     const grid = document.createElement("div"); grid.className = "rules";
-    rules.forEach((x, i) => { const c = document.createElement("article"); c.className = "rule" + (x.key ? " key" : ""); c.innerHTML = `<span class="no">원칙 ${i + 1}</span><h3>${x.h}</h3><p>${x.p}</p><div class="live">${metric[x.m]}</div>`; grid.appendChild(c); });
+    rules.forEach((x, i) => { const c = document.createElement("article"); c.className = "rule" + (x.key ? " key" : ""); c.innerHTML = `<span class="no">원칙 ${i + 1}${x.tag ? " · 오행 " + x.tag : ""}</span><h3>${x.h}</h3><p>${x.p}</p><div class="live">${metric[x.m]}</div>`; grid.appendChild(c); });
     rs.appendChild(grid); root.appendChild(rs);
 
     // 대운
