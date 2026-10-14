@@ -473,6 +473,13 @@ button.chip { background: transparent; cursor: pointer; font-family: inherit; }
 .yf-txt p { margin: 0; font-size: 13px; }
 html[data-skin="swiss"] .yf-txt h3 { font-weight: 800; letter-spacing: -0.04em; }
 html[data-skin="ocean"] .yf-txt h3 { font-family: var(--display); }
+/* iPhone Safari zooms into any field under 16px — keep fields at 16px there */
+@supports (-webkit-touch-callout: none) {
+  input, select, textarea { font-size: 16px !important; }
+  .chipcard input.amt { font-size: 22px !important; }
+  input.amt { padding-inline: 4px !important; font-family: -apple-system, system-ui, sans-serif !important; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  @media (max-width: 560px) { .row { grid-template-columns: minmax(0, 1fr) 100px 100px; } }
+}
 /* theme picker */
 .skins { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; padding: 14px 16px; }
 .skin { border: var(--bw) solid var(--hair); border-radius: 14px; background: var(--surface); padding: 6px; display: grid; gap: 6px; text-align: left; color: var(--ink); }
