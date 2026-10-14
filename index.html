@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#2146b8">
+<meta name="theme-color" content="#f59ac9">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -17,7 +17,7 @@
 <body>
 <title>월간 가계부</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,800;1,600;1,800&family=Black+Han+Sans&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Gowun+Dodum&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;600&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display&family=Cormorant+Garamond:wght@500;600&family=Lora:wght@400;500&family=Bagel+Fat+One&family=Yellowtail&family=VT323&family=Silkscreen:wght@400;700&family=Nanum+Gothic+Coding:wght@400;700&family=Inter+Tight:ital,wght@0,400;0,600;0,800;1,600;1,800&family=Black+Han+Sans&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Gowun+Dodum&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;600&family=Space+Mono:wght@400;700&display=swap">
 <style>
 /* Layout: sticker-board money app — chunky outlined cards with hard offset shadows, a poster-type hero for "남은 돈", pastel blocks per section, thumb-reach bottom tab bar */
 :root {
@@ -256,11 +256,11 @@ table.year .empty { color: var(--hair); }
 
 /* ===== skins (picked in 더보기) — each is a single committed look ===== */
 :root { }
-html:root[data-skin="swiss"], html:root[data-skin="ocean"], html:root[data-skin="soul"] { --shadow: none; --shadow-lg: none; --bw: 1px; }
-html:root[data-skin="swiss"] body, html:root[data-skin="ocean"] body, html:root[data-skin="soul"] body { background-image: none; }
-html[data-skin="swiss"] :is(.btn, .sec-h .btn, .cal button.day.sel), html[data-skin="ocean"] :is(.btn, .sec-h .btn, .cal button.day.sel), html[data-skin="soul"] :is(.btn, .sec-h .btn, .cal button.day.sel) { box-shadow: none; }
-html[data-skin="swiss"] :is(.row, .subrow, .todo, .entry, .dayform, .todo-add, table.year td), html[data-skin="ocean"] :is(.row, .subrow, .todo, .entry, .dayform, .todo-add, table.year td), html[data-skin="soul"] :is(.row, .subrow, .todo, .entry, .dayform, .todo-add, table.year td) { border-bottom-style: solid; }
-html[data-skin="swiss"] .hero::after, html[data-skin="ocean"] .hero::after { display: none; }
+html:root[data-skin="swiss"], html:root[data-skin="moss"], html:root[data-skin="soul"] { --shadow: none; --shadow-lg: none; --bw: 1px; }
+html:root[data-skin="swiss"] body, html:root[data-skin="moss"] body, html:root[data-skin="soul"] body { background-image: none; }
+html[data-skin="swiss"] :is(.btn, .sec-h .btn, .cal button.day.sel), html[data-skin="moss"] :is(.btn, .sec-h .btn, .cal button.day.sel), html[data-skin="soul"] :is(.btn, .sec-h .btn, .cal button.day.sel) { box-shadow: none; }
+html[data-skin="swiss"] :is(.row, .subrow, .todo, .entry, .dayform, .todo-add, table.year td), html[data-skin="moss"] :is(.row, .subrow, .todo, .entry, .dayform, .todo-add, table.year td), html[data-skin="soul"] :is(.row, .subrow, .todo, .entry, .dayform, .todo-add, table.year td) { border-bottom-style: solid; }
+html[data-skin="swiss"] .hero::after, html[data-skin="moss"] .hero::after { display: none; }
 
 /* swiss — grainy paper, tight black grotesk, inverted type blocks, crop marks, typewriter labels */
 html:root[data-skin="swiss"] {
@@ -329,57 +329,74 @@ html[data-skin="swiss"] .stack { height: 8px; border-radius: 0; border: 1px soli
 html[data-skin="swiss"] .legend { font-family: var(--mono); font-size: 10.5px; text-transform: uppercase; }
 html[data-skin="swiss"] .legend span::before { border-radius: 0; border-width: 1px; }
 html[data-skin="swiss"] .orbs { display: flex; margin: 4px 0 6px; }
-html[data-skin="swiss"] .orb { border: 1.5px dotted #111; color: #111; width: 100px; height: 100px; margin-top: -24px; }
-html[data-skin="swiss"] .orb:first-child { margin-top: 0; color: #111; }
-html[data-skin="swiss"] .orb b { font-family: var(--mono); font-weight: 700; font-size: 12px; text-transform: uppercase; }
+html[data-skin="swiss"] .orb { border: 1.5px dotted #111; color: #111; width: 104px; height: 104px; margin-left: -14px; }
+html[data-skin="swiss"] .orb:first-child { margin-left: 0; }
+html[data-skin="swiss"] .orb b { font-family: var(--mono); font-weight: 700; font-size: 11px; text-transform: uppercase; }
 html[data-skin="swiss"] .orb i { font-family: var(--display); font-weight: 800; font-size: 15px; letter-spacing: -0.04em; }
 html[data-skin="swiss"] .orbs::after { border-color: #111; }
 html[data-skin="swiss"] .orbs .vtext { color: #111; font-family: var(--mono); text-transform: uppercase; font-weight: 400; font-size: 10.5px; }
 
-/* ocean — misty sky-to-deep-sea gradient, film grain, hairline white circles, serif + tracked caps */
-html:root[data-skin="ocean"] {
-  --noise: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .28 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  --bg: #d6e2e7; --surface: rgba(255,255,255,.52); --sunk: rgba(255,255,255,.42); --ink: #1d3557; --muted: #557089; --line: rgba(29,53,87,.32); --hair: rgba(29,53,87,.13);
-  --accent: #1d4e7a; --accent-soft: rgba(29,78,122,.1); --good: #2a7466; --warn: #9c5d1a; --bad: #ae3a4c;
-  --hero: #5f97b3; --hero-neg: #6b3b4c; --pop-save: transparent; --pop-fixed: transparent; --pop-card: transparent; --pop-pnl: transparent; --pop-misc: transparent;
-  --display: "Newsreader", "Noto Serif KR", Georgia, serif; --sans: "Noto Sans KR", system-ui, sans-serif;
-  --hero-ink: #fff; --mood-bg: transparent; --mood-ink: #fff; --stack-line: rgba(255,255,255,.65);
-  --s1: #ffffff; --s2: #bfe0ea; --s3: #7fb0c9; --on-accent: #fff; --check: #fff; --on-bg: #1d3557; --on-bg-muted: #557089; color-scheme: light; }
-html[data-skin="ocean"] body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  background: var(--noise), radial-gradient(ellipse at 15% 10%, rgba(255,255,255,.75), transparent 45%), radial-gradient(ellipse at 90% 60%, rgba(120,175,200,.45), transparent 55%), linear-gradient(180deg, #e3e8eb 0%, #c3dae2 45%, #9fc3d2 100%); }
-html[data-skin="ocean"] :is(.sec, .chipcard, .rule, .tabs, .month, .skin) { background: var(--surface); -webkit-backdrop-filter: blur(16px) saturate(1.15); backdrop-filter: blur(16px) saturate(1.15); border: 1px solid rgba(255,255,255,.75); }
-html[data-skin="ocean"] :is(.sec, .rule) { border-radius: 18px; }
-html[data-skin="ocean"] .chipcard { border-radius: 16px; }
-html[data-skin="ocean"] .tabs { border-radius: 20px; }
-html[data-skin="ocean"] .tabs button[aria-selected="true"], html[data-skin="ocean"] .btn.on { background: var(--ink); color: #fff; }
-html[data-skin="ocean"] .btn { background: rgba(255,255,255,.5); border: 1px solid var(--line); font-weight: 500; }
-html[data-skin="ocean"] .sec-h { background: transparent; border-bottom: 1px solid var(--hair); }
-html[data-skin="ocean"] :is(h1, .sec-h h2, .rule h3, .phase h3) { font-family: var(--display); font-weight: 400; letter-spacing: -0.01em; }
-html[data-skin="ocean"] .sec-h h2 { font-size: 20px; }
-html[data-skin="ocean"] :is(.sec-h .tot, .row.head, .subrow.head, .chipcard .k, .chipcard label, .rule .no, .phase .age, table.year th) { font-family: var(--sans); text-transform: uppercase; letter-spacing: 0.12em; font-size: 10.5px; font-weight: 500; }
-html[data-skin="ocean"] :is(.chipcard .v, .chipcard input.amt) { font-family: var(--display); font-weight: 400; font-size: 24px; }
-html[data-skin="ocean"] .chipcard .k::before, html[data-skin="ocean"] .chipcard label::before { display: none; }
-html[data-skin="ocean"] h1 em { background: none; border: 0; padding: 0; transform: none; font-style: italic; }
-html[data-skin="ocean"] .rule .no { background: transparent; color: var(--ink); border: 1px solid var(--line); }
-html[data-skin="ocean"] input.amt, html[data-skin="ocean"] .name input, html[data-skin="ocean"] :is(.subrow, .dayform, .todo-add) :is(input[type="text"], select) { border-width: 1px; border-color: var(--hair); background: rgba(255,255,255,.5); }
-html[data-skin="ocean"] .chipcard input.amt { background: transparent; border: 0; border-bottom: 1px dashed var(--line); border-radius: 0; }
-html[data-skin="ocean"] .cal button.day { background: rgba(255,255,255,.35); border-color: rgba(255,255,255,.7); }
-html[data-skin="ocean"] .cal button.day.has { background: rgba(127,176,201,.35); border-color: var(--line); }
-html[data-skin="ocean"] .cal button.day.sel { background: var(--ink); color: #fff; border-color: var(--ink); }
-html[data-skin="ocean"] .cal button.day.sel :is(.dn, .dt, .dc) { color: #fff; }
-html[data-skin="ocean"] .catrow .bar { border: 0; background: rgba(29,53,87,.1); } html[data-skin="ocean"] .catrow .bar i { background: var(--ink); border: 0; }
-html[data-skin="ocean"] .chip.rep { background: transparent; } html[data-skin="ocean"] .phase .tag { border: 0; }
-
-/* ocean hero: the Calm / Clarity / Composure stack, as 저축 / 고정 / 카드 */
-html[data-skin="ocean"] .hero { border: 0; border-radius: 6px; padding: 22px 20px 20px; gap: 12px;
-  background: var(--noise), linear-gradient(180deg, #e6eaec 0%, #c6dee5 13%, #9dc7d4 30%, #5f97b3 56%, #2c5e86 80%, #142d50 100%); }
-html[data-skin="ocean"] .hero.neg { background: var(--noise), linear-gradient(180deg, #ece6e6 0%, #dcc3c6 18%, #b98a96 45%, #7a4459 75%, #3b1a2c 100%); }
-html[data-skin="ocean"] .hero .lbl { color: #1d3557; opacity: 1; font-size: 10.5px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
-html[data-skin="ocean"] .hero .big { font-family: var(--display); font-weight: 300; font-size: clamp(42px, 12vw, 60px); letter-spacing: -0.02em; }
-html[data-skin="ocean"] .mood { transform: none; font-weight: 400; border-width: 1px; }
-html[data-skin="ocean"] .stack { height: 6px; border-width: 0; background: rgba(255,255,255,.22); }
-html[data-skin="ocean"] .legend span::before { border-radius: 50%; border-width: 1px; }
-html[data-skin="ocean"] .orbs { display: flex; }
+/* moss — grainy olive-to-forest gradient, soft light beam, hairline capsule with filled circles, dotted path */
+html:root[data-skin="moss"] {
+  --noise: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  --bg: #4a5634; --surface: rgba(28,36,22,.38); --sunk: rgba(236,235,217,.07); --ink: #eeeddc; --muted: #b9bc9e; --line: rgba(238,237,220,.4); --hair: rgba(238,237,220,.14);
+  --accent: #eeeddc; --accent-soft: rgba(238,237,220,.1); --good: #b9df8f; --warn: #f0c27a; --bad: #f19a8c;
+  --hero: #55603c; --hero-neg: #6b4436; --pop-save: transparent; --pop-fixed: transparent; --pop-card: transparent; --pop-pnl: transparent; --pop-misc: transparent;
+  --display: "Cormorant Garamond", "Noto Serif KR", serif; --sans: "DM Sans", "Noto Sans KR", system-ui, sans-serif; --mono: "DM Sans", "Noto Sans KR", sans-serif;
+  --hero-ink: #eeeddc; --mood-bg: transparent; --mood-ink: #eeeddc; --stack-line: rgba(238,237,220,.6); --s1: #8a6a55; --s2: #9aa88e; --s3: #7cb85a;
+  --on-accent: #2c3520; --check: #2c3520; --on-bg: #eeeddc; --on-bg-muted: #c3c6a6; color-scheme: dark; }
+html[data-skin="moss"] body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: var(--noise), radial-gradient(ellipse at 12% 0%, rgba(214,226,150,.22), transparent 50%), linear-gradient(172deg, #6c7049 0%, #56613a 30%, #405036 65%, #2f4137 100%); }
+html[data-skin="moss"] :is(.sec, .chipcard, .rule, .tabs, .month, .skin) { background: var(--surface); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid rgba(238,237,220,.22); }
+html[data-skin="moss"] :is(.sec, .rule) { border-radius: 20px; } html[data-skin="moss"] .chipcard { border-radius: 18px; } html[data-skin="moss"] .tabs { border-radius: 22px; background: rgba(28,36,22,.6); }
+html[data-skin="moss"] .tabs button[aria-selected="true"], html[data-skin="moss"] .btn.on { background: #eeeddc; color: #2c3520; }
+html[data-skin="moss"] .btn { background: transparent; border: 1px solid var(--line); color: var(--ink); font-weight: 400; }
+html[data-skin="moss"] .btn:hover { background: rgba(238,237,220,.12); }
+html[data-skin="moss"] .sec-h { background: transparent; border-bottom: 1px solid var(--hair); }
+html[data-skin="moss"] :is(.sec-h h2, .rule h3, .phase h3, .yf-txt h3) { font-family: var(--display); font-weight: 600; font-size: 21px; letter-spacing: 0; }
+html[data-skin="moss"] h1 { font-family: "DM Serif Display", "Noto Serif KR", serif; font-weight: 400; }
+html[data-skin="moss"] h1 em { background: none; border: 0; padding: 0; transform: none; font-style: normal; }
+html[data-skin="moss"] :is(.chipcard .v, .chipcard input.amt) { font-family: "DM Sans", "Noto Sans KR", sans-serif; font-weight: 300; font-size: 24px; }
+html[data-skin="moss"] .chipcard input.amt { background: transparent; border: 0; border-bottom: 1px dashed var(--line); border-radius: 0; }
+html[data-skin="moss"] .chipcard .k::before, html[data-skin="moss"] .chipcard label::before { display: none; }
+html[data-skin="moss"] input.amt, html[data-skin="moss"] .name input, html[data-skin="moss"] :is(.subrow, .dayform, .todo-add, .saju-form) :is(input, select) { background: rgba(238,237,220,.07); border: 1px solid var(--hair); color: var(--ink); }
+html[data-skin="moss"] select option { background: #3a4630; color: #eeeddc; }
+html[data-skin="moss"] .diff.good, html[data-skin="moss"] .diff.warn, html[data-skin="moss"] .diff.bad { background: rgba(238,237,220,.08); }
+html[data-skin="moss"] .cal button.day { background: rgba(238,237,220,.05); border-color: var(--hair); }
+html[data-skin="moss"] .cal button.day.has { background: rgba(124,184,90,.28); border-color: var(--line); }
+html[data-skin="moss"] .cal button.day.sel { background: #eeeddc; border-color: #eeeddc; box-shadow: none; }
+html[data-skin="moss"] .cal button.day.sel :is(.dn, .dt, .dc) { color: #2c3520; }
+html[data-skin="moss"] .catrow .bar { border: 0; background: rgba(238,237,220,.12); } html[data-skin="moss"] .catrow .bar i { background: #7cb85a; border: 0; }
+html[data-skin="moss"] .rule .no { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+html[data-skin="moss"] .phase.now { background: rgba(238,237,220,.08); } html[data-skin="moss"] .phase .tag { background: #7cb85a; color: #1f2a16; border: 0; }
+html[data-skin="moss"] .pillar { background: rgba(238,237,220,.05); } html[data-skin="moss"] .pillar.me { box-shadow: inset 0 0 0 1px var(--ink); }
+html[data-skin="moss"] .chip.rep { background: rgba(124,184,90,.3); color: var(--ink); }
+html[data-skin="moss"] table.year th { background: rgba(238,237,220,.06); } html[data-skin="moss"] table.year tr.cur td { background: rgba(238,237,220,.08); }
+html[data-skin="moss"] .subrow.review { background: rgba(240,194,122,.12); }
+/* moss hero */
+html[data-skin="moss"] .hero { border: 0; border-radius: 6px; padding: 24px 20px 20px; gap: 12px;
+  background: var(--noise), radial-gradient(ellipse at 0% 0%, rgba(214,226,150,.5), transparent 45%), linear-gradient(165deg, #7f8457 0%, #5b6a3e 40%, #3b5233 75%, #2f443a 100%); }
+html[data-skin="moss"] .hero.neg { background: var(--noise), linear-gradient(165deg, #8a6a55 0%, #6b4436 60%, #3f2a24 100%); }
+html[data-skin="moss"] .hero::after { display: none; }
+html[data-skin="moss"] .hero .lbl { font-family: "DM Sans", "Noto Sans KR", sans-serif; font-size: 12px; font-weight: 400; letter-spacing: .04em; opacity: .9; }
+html[data-skin="moss"] .hero .big { font-family: "DM Sans", "Noto Sans KR", sans-serif; font-weight: 300; font-size: clamp(40px, 12vw, 58px); letter-spacing: -0.03em; }
+html[data-skin="moss"] .mood { transform: none; font-weight: 400; border-width: 1px; }
+html[data-skin="moss"] .stack { height: 6px; border: 0; background: rgba(238,237,220,.18); }
+html[data-skin="moss"] .legend span::before { border-radius: 50%; border: 0; }
+html[data-skin="moss"] .orbs { display: flex; padding: 14px 0 30px; }
+html[data-skin="moss"] .orb { border: 0; color: #eeeddc; width: 96px; height: 96px; margin-left: -10px; opacity: .92; }
+html[data-skin="moss"] .orb:nth-child(1) { background: #5b4434; } html[data-skin="moss"] .orb:nth-child(2) { background: #7a8a72; } html[data-skin="moss"] .orb:nth-child(3) { background: #5f9a45; }
+html[data-skin="moss"] .orb b { font-family: "DM Sans", "Noto Sans KR", sans-serif; font-weight: 400; font-size: 13px; }
+html[data-skin="moss"] .orb i { font-family: "DM Sans", sans-serif; font-weight: 300; font-size: 13px; }
+html[data-skin="moss"] .orbs::after { top: 4px; bottom: 20px; height: auto; width: 304px; border: 1px solid rgba(238,237,220,.75); border-radius: 999px; }
+html[data-skin="moss"] .orbs .vtext { color: #eeeddc; font-family: "DM Sans", sans-serif; font-weight: 300; letter-spacing: .12em; font-size: 10.5px; }
+/* moss trend: dotted path with white beads */
+html[data-skin="moss"] .trend { background: var(--noise), radial-gradient(ellipse at 10% 0%, rgba(214,226,150,.4), transparent 50%), linear-gradient(160deg, #4f6b33 0%, #345a2a 60%, #2c4a2a 100%); }
+html[data-skin="moss"] .trend .ln { stroke: #fff; stroke-width: 3; stroke-dasharray: 0.5 6; stroke-linecap: round; }
+html[data-skin="moss"] .trend .pt { fill: #fff; stroke: none; r: 6; }
+html[data-skin="moss"] .trend text { fill: #eeeddc; font-family: "Cormorant Garamond", "Noto Serif KR", serif; font-size: 12px; }
+html[data-skin="moss"] .trend text.v { font-weight: 600; font-size: 13.5px; }
+.sw-moss { background: radial-gradient(circle at 38% 52%, rgba(91,68,52,.95) 0 13px, transparent 14px), radial-gradient(circle at 52% 52%, rgba(122,138,114,.95) 0 13px, transparent 14px), radial-gradient(circle at 66% 52%, rgba(95,154,69,.95) 0 13px, transparent 14px), linear-gradient(165deg, #8b8b5e, #44543a); color: #eeeddc; font-family: "DM Serif Display", serif; }
 
 /* soul — warm beige, blurred colour fields, hairline circles */
 html:root[data-skin="soul"] {
@@ -408,13 +425,13 @@ html[data-skin="soul"] .rule { background: radial-gradient(circle at 90% 10%, va
 .sec-h.plain, .sec-h.plain .tot { color: var(--on-bg); }
 .poster-meta { display: none; grid-template-columns: 1fr auto auto; gap: 14px; font-family: "Space Mono", monospace; font-size: 10.5px; text-transform: uppercase; padding-left: 26px; }
 .hero .big .pre { display: none; }
-.orbs { display: none; position: relative; flex-direction: column; align-items: center; padding: 6px 0 4px; }
-.orb { width: 108px; height: 108px; border: 1px solid rgba(255,255,255,.92); border-radius: 50%; display: grid; place-content: center; text-align: center; gap: 0; margin-top: -26px; color: #fff; }
-.orb:first-child { margin-top: 0; color: #1d3557; }
-.orb b { font-family: "Newsreader", "Noto Serif KR", serif; font-weight: 400; font-size: 19px; line-height: 1.1; }
+.orbs { display: none; position: relative; flex-direction: row; justify-content: center; align-items: center; padding: 4px 0 34px; }
+.orb { width: 104px; height: 104px; flex: none; border: 1px solid rgba(255,255,255,.92); border-radius: 50%; display: grid; place-content: center; text-align: center; gap: 0; margin-left: -14px; color: #1d3557; }
+.orb:first-child { margin-left: 0; }
+.orb b { font-family: "Newsreader", "Noto Serif KR", serif; font-weight: 400; font-size: 14px; line-height: 1.15; letter-spacing: -0.02em; }
 .orb i { font-style: normal; font-family: "Newsreader", serif; font-size: 13px; opacity: .9; }
-.orbs::after { content: ""; position: absolute; left: calc(50% + 74px); top: 8px; bottom: 6px; width: 12px; border: 1px solid rgba(255,255,255,.85); border-left: 0; }
-.orbs .vtext { position: absolute; left: calc(50% + 94px); top: 50%; transform: translateY(-50%); writing-mode: vertical-rl; font-size: 11.5px; font-weight: 300; letter-spacing: 0.12em; color: #fff; white-space: nowrap; }
+.orbs::after { content: ""; position: absolute; left: 50%; transform: translateX(-50%); bottom: 18px; width: 284px; max-width: 100%; height: 10px; border: 1px solid rgba(29,53,87,.55); border-top: 0; }
+.orbs .vtext { position: absolute; left: 0; right: 0; bottom: 0; text-align: center; font-size: 11px; font-weight: 400; letter-spacing: 0.14em; color: #1d3557; white-space: nowrap; }
 /* trend curve (연간) */
 .trend svg { display: block; width: 100%; height: auto; }
 .trend .ln { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round; }
@@ -423,12 +440,6 @@ html[data-skin="soul"] .rule { background: radial-gradient(circle at 90% 10%, va
 .trend text { fill: var(--muted); font-size: 11px; font-family: var(--sans); }
 .trend text.v { fill: var(--ink); font-weight: 700; }
 .trend .empty { padding: 18px 16px; color: var(--muted); font-size: 13px; }
-html[data-skin="ocean"] .trend { background: var(--noise), radial-gradient(ellipse at 18% 25%, rgba(255,255,255,.85), transparent 50%), linear-gradient(160deg, #dfe4e6 0%, #b7d4de 55%, #93bccd 100%); }
-html[data-skin="ocean"] .trend .ln { stroke: #fff; stroke-width: 2.2; }
-html[data-skin="ocean"] .trend .pt { fill: #fff; stroke: none; }
-html[data-skin="ocean"] .trend text { fill: #1d3557; letter-spacing: 0.12em; font-size: 10.5px; }
-html[data-skin="ocean"] .trend text.v { font-family: "Newsreader", serif; letter-spacing: 0; font-size: 13px; font-weight: 400; }
-html[data-skin="ocean"] .trend .zero { stroke: rgba(29,53,87,.25); }
 .sec-name, .pnl-name { font: inherit; font-size: 15px; border: var(--bw) solid var(--line); border-radius: 10px; padding: 3px 8px; background: var(--surface); color: var(--ink); min-width: 0; width: 13em; max-width: 100%; }
 .sec-h h2 { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .pnl-name { width: 100%; font-size: 13px; }
@@ -472,7 +483,6 @@ button.chip { background: transparent; cursor: pointer; font-family: inherit; }
 .yf-txt h3 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 19px; }
 .yf-txt p { margin: 0; font-size: 13px; }
 html[data-skin="swiss"] .yf-txt h3 { font-weight: 800; letter-spacing: -0.04em; }
-html[data-skin="ocean"] .yf-txt h3 { font-family: var(--display); }
 /* iPhone Safari zooms into any field under 16px — keep fields at 16px there */
 @supports (-webkit-touch-callout: none) {
   input, select, textarea { font-size: 16px !important; }
@@ -480,6 +490,84 @@ html[data-skin="ocean"] .yf-txt h3 { font-family: var(--display); }
   input.amt { padding-inline: 4px !important; font-family: -apple-system, system-ui, sans-serif !important; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
   @media (max-width: 560px) { .row { grid-template-columns: minmax(0, 1fr) 100px 100px; } }
 }
+
+.player { display: none; }
+
+/* vivid — hot pink / lime / orange poster blocks, puffy display type, script stickers */
+html:root[data-skin="vivid"] {
+  --bg: #f59ac9; --surface: #fff6ea; --sunk: #fdeedd; --ink: #2b1720; --muted: #7a4a5c; --line: #2b1720; --hair: #f0c9b8;
+  --accent: #e8317a; --accent-soft: #ffd6e9; --good: #2f7d32; --warn: #c25a00; --bad: #d1202f;
+  --hero: #b6d334; --hero-neg: #f47b20; --pop-save: #b6d334; --pop-fixed: #f47b20; --pop-card: #ff8fcb; --pop-pnl: #ffd23f; --pop-misc: #9fd8f0;
+  --display: "Bagel Fat One", "Noto Sans KR", sans-serif; --sans: "Noto Sans KR", system-ui, sans-serif; --mono: "Space Mono", monospace;
+  --shadow: 3px 3px 0 #2b1720; --shadow-lg: 4px 4px 0 #2b1720; --bw: 2px;
+  --hero-ink: #2b1720; --mood-bg: #fff6ea; --mood-ink: #2b1720; --stack-line: #2b1720; --s1: #ff8fcb; --s2: #f47b20; --s3: #fff6ea;
+  --on-accent: #fff; --check: #fff; --on-bg: #2b1720; --on-bg-muted: #5e2a3e; color-scheme: light; }
+html[data-skin="vivid"] body { background-image: radial-gradient(rgba(43,23,32,.12) 1.2px, transparent 1.2px); background-size: 14px 14px; }
+html[data-skin="vivid"] h1 { font-weight: 400; }
+html[data-skin="vivid"] h1 em { background: #b6d334; transform: rotate(-3deg); border-radius: 10px; }
+html[data-skin="vivid"] :is(.sec-h h2, .rule h3, .phase h3) { font-weight: 400; letter-spacing: 0; }
+html[data-skin="vivid"] .sec-h { border-bottom-width: 2px; }
+html[data-skin="vivid"] .sec-h h2 { color: #fff6ea; -webkit-text-stroke: 1px #2b1720; paint-order: stroke fill; text-shadow: 2px 2px 0 #2b1720; font-size: 21px; }
+html[data-skin="vivid"] .sec[data-sec="pnl"] .sec-h h2, html[data-skin="vivid"] .sec[data-sec="misc"] .sec-h h2 { color: #ff8fcb; }
+html[data-skin="vivid"] :is(.chipcard .v, .chipcard input.amt) { font-family: var(--display); font-weight: 400; }
+html[data-skin="vivid"] .btn { border-radius: 999px; background: #ff8fcb; }
+html[data-skin="vivid"] .btn:hover { background: #ffd23f; }
+html[data-skin="vivid"] .tabs { background: #fff6ea; }
+html[data-skin="vivid"] .tabs button[aria-selected="true"] { background: #e8317a; color: #fff; }
+html[data-skin="vivid"] .rule:nth-child(5n+1) { background: #b6d334; } html[data-skin="vivid"] .rule:nth-child(5n+3) { background: #ffd23f; } html[data-skin="vivid"] .rule:nth-child(5n+2) { background: #ff8fcb; }
+html[data-skin="vivid"] .cal button.day.has { background: #ff8fcb; } html[data-skin="vivid"] .cal button.day.sel { background: #b6d334; }
+html[data-skin="vivid"] .hero { border-radius: 26px; padding-top: 26px; }
+html[data-skin="vivid"] .hero::after { content: "save, honey!"; position: absolute; right: -6px; top: -14px; left: auto; bottom: auto; width: 96px; height: 96px; display: grid; place-items: center; text-align: center; border-radius: 0;
+  background: #f47b20; color: #fff6ea; font: 400 19px/1 "Yellowtail", cursive; padding: 14px; transform: rotate(12deg);
+  clip-path: polygon(50% 0%, 61% 13%, 77% 6%, 79% 23%, 96% 25%, 88% 40%, 100% 52%, 87% 62%, 93% 79%, 76% 79%, 71% 96%, 57% 87%, 44% 100%, 36% 85%, 19% 92%, 19% 75%, 3% 70%, 12% 55%, 0% 42%, 14% 33%, 8% 17%, 25% 17%, 31% 2%, 42% 13%); }
+html[data-skin="vivid"] .hero .lbl span:first-child { font-family: "Yellowtail", "Noto Sans KR", cursive; font-size: 17px; font-weight: 400; color: #d1202f; }
+html[data-skin="vivid"] .hero .lbl .plan { margin-right: 84px; }
+html[data-skin="vivid"] .hero .big { font-family: "Bagel Fat One", "Noto Sans KR", sans-serif; color: #ff8fcb; -webkit-text-stroke: 2px #2b1720; paint-order: stroke fill; text-shadow: 4px 4px 0 #2b1720; letter-spacing: 0; }
+html[data-skin="vivid"] .hero.neg .big { color: #fff6ea; }
+html[data-skin="vivid"] .mood { border-radius: 999px; background: #e8317a; color: #fff; transform: rotate(-2deg); }
+html[data-skin="vivid"] .stack { background: #fff6ea; height: 16px; }
+.sw-vivid { background: linear-gradient(135deg, #b6d334 0 50%, #f47b20 50% 70%, #ff8fcb 70%); color: #ff8fcb; font-family: "Bagel Fat One", sans-serif; -webkit-text-stroke: 1px #2b1720; text-shadow: 2px 2px 0 #2b1720; border: 2px solid #2b1720; font-size: 17px !important; }
+
+/* retro — 1-bit desktop windows, pixel numerals, sky blue + cream, yellow highlighter */
+html:root[data-skin="retro"] {
+  --bg: #e4e4e2; --surface: #ffffff; --sunk: #fbf3d0; --ink: #111111; --muted: #555555; --line: #111111; --hair: #c8c8c4;
+  --accent: #111111; --accent-soft: #fbf3d0; --good: #1f6b3a; --warn: #8a5600; --bad: #b3261e;
+  --hero: #a9d3f5; --hero-neg: #f6b4b4; --pop-save: #a9d3f5; --pop-fixed: #fbf3d0; --pop-card: #ffffff; --pop-pnl: #f2d36b; --pop-misc: #d9ecfb;
+  --display: "Nanum Gothic Coding", "Noto Sans KR", monospace; --sans: "Nanum Gothic Coding", "Noto Sans KR", monospace; --mono: "Silkscreen", "Nanum Gothic Coding", monospace;
+  --shadow: 2px 2px 0 #111; --shadow-lg: 3px 3px 0 #111; --bw: 2px;
+  --hero-ink: #111; --mood-bg: #f2d36b; --mood-ink: #111; --stack-line: #111; --s1: #111; --s2: #6b6b6b; --s3: #f2d36b;
+  --on-accent: #fff; --check: #fff; --on-bg: #111; --on-bg-muted: #555; color-scheme: light; }
+html[data-skin="retro"] body { background-image: linear-gradient(rgba(0,0,0,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.05) 1px, transparent 1px); background-size: 16px 16px; }
+html[data-skin="retro"] :is(.sec, .chipcard, .rule, .tabs, .month, .skin, .btn, input.amt, .hero) { border-radius: 0 !important; }
+html[data-skin="retro"] .sec-h { background: repeating-linear-gradient(180deg, #111 0 1px, #fff 1px 3px); justify-content: center; position: relative; padding-block: 6px; }
+html[data-skin="retro"] .sec-h::before { content: ""; position: absolute; left: 10px; top: 9px; width: 12px; height: 12px; background: #fff; border: 2px solid #111; }
+html[data-skin="retro"] .sec-h h2 { background: #fff; padding: 0 10px; font-size: 15px; font-weight: 700; }
+html[data-skin="retro"] .sec-h .tot, html[data-skin="retro"] .sec-h .btn { background: #fff; padding: 0 6px; }
+html[data-skin="retro"] .sec-h > span:not(.tot) { order: 3; flex-basis: 100%; justify-content: center; }
+html[data-skin="retro"] .sec-h .tot { order: 3; flex-basis: 100%; text-align: center; background: transparent; }
+html[data-skin="retro"] .sec-h .tot b, html[data-skin="retro"] .sec-h .tot { background: #fff; width: max-content; margin: 0 auto; }
+html[data-skin="retro"] :is(.chipcard .v, .chipcard input.amt, .trend text.v) { font-family: "VT323", monospace; font-weight: 400; font-size: 27px; letter-spacing: 0; }
+html[data-skin="retro"] :is(.chipcard .k, .chipcard label, .row.head, .rule .no, .tabs button, .phase .age) { font-family: "Silkscreen", "Nanum Gothic Coding", monospace; font-weight: 400; text-transform: uppercase; letter-spacing: .02em; }
+html[data-skin="retro"] .chipcard .k::before, html[data-skin="retro"] .chipcard label::before { border-radius: 0; }
+html[data-skin="retro"] input.amt { font-family: "VT323", monospace; font-size: 18px; background: #fff; border-color: #111; }
+html[data-skin="retro"] h1 em { background: #f2d36b; border-radius: 0; transform: none; }
+html[data-skin="retro"] .btn { background: #fff; box-shadow: 2px 2px 0 #111; }
+html[data-skin="retro"] .btn:hover, html[data-skin="retro"] .btn.on { background: #111; color: #fff; }
+html[data-skin="retro"] .tabs button { border-radius: 0; font-size: 9.5px; }
+html[data-skin="retro"] .tabs button[aria-selected="true"] { background: #111; color: #fff; }
+html[data-skin="retro"] .cal button.day { border-radius: 0; } html[data-skin="retro"] .cal button.day.has { background: #a9d3f5; border-color: #111; } html[data-skin="retro"] .cal button.day.sel { background: #f2d36b; }
+html[data-skin="retro"] .diff, html[data-skin="retro"] .chip, html[data-skin="retro"] .mood { border-radius: 0; }
+html[data-skin="retro"] .hero { padding-top: 34px; }
+html[data-skin="retro"] .hero::after { content: "money.app"; position: absolute; left: 0; right: 0; top: 0; width: auto; height: 24px; border-radius: 0; display: flex; align-items: center; justify-content: center;
+  background: repeating-linear-gradient(180deg, #111 0 1px, #a9d3f5 1px 3px); border-bottom: 2px solid #111; font: 400 11px/1 "Silkscreen", monospace; color: #111; }
+html[data-skin="retro"] .hero .lbl { font-family: "Silkscreen", "Nanum Gothic Coding", monospace; font-size: 11px; text-transform: uppercase; opacity: 1; }
+html[data-skin="retro"] .hero .big { font-family: "VT323", monospace; font-size: clamp(44px, 14vw, 80px); line-height: .9; letter-spacing: 0; white-space: nowrap; }
+html[data-skin="retro"] .hero .big small { font-family: "Nanum Gothic Coding", monospace; font-size: .3em; }
+html[data-skin="retro"] .mood { transform: none; border: 0; padding: 1px 6px; font-weight: 700; }
+html[data-skin="retro"] .stack { border-radius: 0; height: 14px; background: repeating-linear-gradient(90deg, #fff 0 4px, #e9e9e9 4px 8px); }
+html[data-skin="retro"] .stack i { border-right: 2px solid #111; }
+html[data-skin="retro"] .legend span::before { border-radius: 0; }
+.sw-retro { background: repeating-linear-gradient(180deg, #111 0 1px, #fff 1px 3px) top / 100% 14px no-repeat, #a9d3f5; color: #111; font-family: "VT323", monospace; font-size: 26px !important; border: 2px solid #111; }
 /* theme picker */
 .skins { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; padding: 14px 16px; }
 .skin { border: var(--bw) solid var(--hair); border-radius: 14px; background: var(--surface); padding: 6px; display: grid; gap: 6px; text-align: left; color: var(--ink); }
@@ -490,9 +578,10 @@ html[data-skin="ocean"] .yf-txt h3 { font-family: var(--display); }
 .sw-pop { background: #6c3cff; color: #fff; font-family: "Black Han Sans", sans-serif; border: 2px solid #1a1424; }
 .sw-swiss { background: #e7e7e4; color: #111; font-family: "Inter Tight", sans-serif; font-weight: 800; letter-spacing: -0.05em; font-size: 16px !important; border: 1px solid #111; }
 .sw-swiss em { font-style: normal; background: #111; color: #e7e7e4; padding: 0 3px; }
-.sw-ocean { background: radial-gradient(circle at 50% 46%, transparent 21px, rgba(255,255,255,.9) 22px, transparent 23px), linear-gradient(180deg, #e3e8eb 0%, #9dc7d4 40%, #2c5e86 80%, #142d50 100%); color: #fff; font-family: "Newsreader", serif; font-style: italic; }
 .sw-soul { background: radial-gradient(circle at 25% 75%, rgba(234,168,86,.6), transparent 40%), radial-gradient(circle at 60% 25%, rgba(232,166,182,.7), transparent 40%), radial-gradient(circle at 85% 70%, rgba(190,184,210,.8), transparent 40%), #e4dcd1; color: #2b2622; font-weight: 300; }
-@media (max-width: 560px) { .skins { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.skins { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(124px, 1fr); overflow-x: auto; scroll-snap-type: x proximity; padding-bottom: 16px; }
+.skin { scroll-snap-align: start; }
+@media (max-width: 640px) { .skins { grid-auto-columns: 31%; gap: 8px; } .skin .sw { height: 54px; } }
 </style>
 
 <div class="wrap">
@@ -511,25 +600,38 @@ html[data-skin="ocean"] .yf-txt h3 { font-family: var(--display); }
 
   <div id="dash" class="panel">
     <section class="hero" id="leftBox" aria-label="이번 달 남은 돈">
+      <div class="player">
+        <div class="pl-art" role="img" aria-label="반짝이는 핑크 물결"><span class="pl-month" id="plMonth">10월</span></div>
+        <div class="pl-meta"><b id="plTitle">0원</b><span>이번 달 남은 돈</span><small id="plMood"></small></div>
+        <div class="pl-bar" aria-hidden="true"><i id="plFill"></i><span id="plKnob"></span></div>
+        <div class="pl-times"><span><small>쓴 돈</small> <span id="plSpent">0</span></span><span><span id="plLeft">-0</span> <small>남음</small></span></div>
+        <div class="pl-ctrl">
+          <span class="pl-ic sm" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7h3.5c2 0 3.2 1 4.3 2.6l2.4 3.8C14.3 15 15.5 16 17.5 16H21M3 16h3.5c1.4 0 2.4-.5 3.3-1.4M13.2 8.4c.9-.9 1.9-1.4 3.3-1.4H21M18.5 4.5 21 7l-2.5 2.5M18.5 13.5 21 16l-2.5 2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <button class="pl-ic" id="plPrev" aria-label="이전 달"><svg viewBox="0 0 24 24"><path d="M11.5 5v14L3 12zM21 5v14l-8.5-7z"/></svg></button>
+          <button class="pl-ic big" id="plMid" aria-label="달력에 오늘 소비 기록"><svg viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="0.5"/><rect x="14" y="4" width="4" height="16" rx="0.5"/></svg></button>
+          <button class="pl-ic" id="plNext" aria-label="다음 달"><svg viewBox="0 0 24 24"><path d="M12.5 5v14L21 12zM3 5v14l8.5-7z"/></svg></button>
+          <button class="pl-ic sm" id="plRepeat" aria-label="지난달 목표 불러오기" title="지난달 목표 불러오기"><svg viewBox="0 0 24 24"><path d="M4 11V9a3 3 0 0 1 3-3h12M16 3l3 3-3 3M20 13v2a3 3 0 0 1-3 3H5M8 21l-3-3 3-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </div>
       <div class="poster-meta" aria-hidden="true"><span>@money.log</span><span id="pmTime"></span><span id="pmDate"></span></div>
       <div class="lbl"><span>이번 달 남은 돈</span><span class="plan" id="leftPlan">계획 기준 0</span></div>
       <div class="orbs" aria-hidden="true">
-        <div class="orb"><b>저축</b><i id="orbSave">0</i></div>
-        <div class="orb"><b>고정</b><i id="orbFixed">0</i></div>
-        <div class="orb"><b>카드</b><i id="orbCard">0</i></div>
+        <div class="orb"><b id="obSave">저축</b><i id="orbSave">0</i></div>
+        <div class="orb"><b id="obFixed">고정지출</b><i id="orbFixed">0</i></div>
+        <div class="orb"><b id="obCard">변동지출</b><i id="orbCard">0</i></div>
         <span class="vtext" id="vtext">머니로그</span>
       </div>
       <div class="big"><span class="pre">the 남은 돈</span><span id="sumLeft">0</span><small>원</small></div>
       <span class="mood" id="mood">월 수입부터 적어 볼까요?</span>
       <div class="stack" id="stack" aria-hidden="true"><i class="s1"></i><i class="s2"></i><i class="s3"></i></div>
-      <div class="legend"><span class="l1">저축·투자</span><span class="l2">고정지출</span><span class="l3">카드·변동</span><span>흰색 = 남은 돈</span></div>
+      <div class="legend"><span class="l1">저축·투자</span><span class="l2">고정지출</span><span class="l3">변동지출</span><span>흰색 = 남은 돈</span></div>
     </section>
 
     <section class="chips" aria-label="이번 달 요약">
       <div class="chipcard c-inc"><label for="income">월 수입</label><input id="income" class="amt" inputmode="numeric" placeholder="0" autocomplete="off"><span class="s">눌러서 입력</span></div>
       <div class="chipcard c-save"><span class="k" id="kSave">저축·투자</span><span class="v" id="sumSave">0</span><span class="s" id="saveRate">저축률 –</span></div>
       <div class="chipcard c-fixed"><span class="k" id="kFixed">고정지출</span><span class="v" id="sumFixed">0</span><span class="s" id="fixedGoal">예산 0</span></div>
-      <div class="chipcard c-card"><span class="k" id="kCard">카드·변동</span><span class="v" id="sumCard">0</span><span class="s" id="cardGoal">예산 0</span></div>
+      <div class="chipcard c-card"><span class="k" id="kCard">변동지출</span><span class="v" id="sumCard">0</span><span class="s" id="cardGoal">예산 0</span></div>
     </section>
 
     <div class="tools" id="ledgerTools">
@@ -569,7 +671,7 @@ html[data-skin="ocean"] .yf-txt h3 { font-family: var(--display); }
         { id: "s_trade", name: "주식·기타투자", bank: "" } ] },
       { id: "fixed", name: "고정지출", goalLabel: "예산", actLabel: "실제", kind: "spend", items: [
         { id: "f_rent", name: "주거비(월세)" }, { id: "f_loan1", name: "대출이자" }, { id: "f_kbins", name: "KB보험" } ] },
-      { id: "card", name: "카드값 (변동지출)", goalLabel: "예산", actLabel: "실제", kind: "spend", items: [
+      { id: "card", name: "변동지출", goalLabel: "예산", actLabel: "실제", kind: "spend", items: [
         { id: "c_kb", name: "KB국민카드" }, { id: "c_hyundai", name: "현대카드" }, { id: "c_woori", name: "우리카드" },
         { id: "c_samsung", name: "삼성카드" }, { id: "c_shinhan", name: "신한카드" } ] }
     ]
@@ -578,25 +680,26 @@ html[data-skin="ocean"] .yf-txt h3 { font-family: var(--display); }
     .map((name, i) => ({ id: "sub" + i, name, price: 0, day: "", method: "", status: "keep" }));
 
   const DEFAULT_TODOS = [
-    { id: "td0", text: "카드값 실제 결제액 입력하기", repeat: true },
+    { id: "td0", text: "변동지출(카드값) 실제 결제액 입력하기", repeat: true },
     { id: "td1", text: "저축·투자 실제 납입액 확인하기", repeat: true },
     { id: "td2", text: "실현손익 정리하기", repeat: true },
     { id: "td3", text: "구독 결제 내역 확인하고 안 쓰는 서비스 정리하기", repeat: true }
   ];
   const SKINS = [
-    { id: "pop", name: "팝 스티커", desc: "통통 튀는 기본", sw: "sw-pop", mark: "₩", color: "#6c3cff" },
+    { id: "vivid", name: "비비드", desc: "핫핑크·라임 포스터", sw: "sw-vivid", mark: "SAVE!", color: "#f59ac9" },
+    { id: "retro", name: "레트로 맥", desc: "픽셀 데스크톱", sw: "sw-retro", mark: "$_", color: "#a9d3f5" },
     { id: "swiss", name: "스위스", desc: "흑백 타이포 포스터", sw: "sw-swiss", mark: "<i>the</i>&nbsp;<em>money</em>", color: "#e7e7e4" },
-    { id: "ocean", name: "오션", desc: "안개 낀 바다", sw: "sw-ocean", mark: "calm", color: "#9fc3d2" },
+    { id: "moss", name: "모스", desc: "올리브 숲의 결", sw: "sw-moss", mark: "method.", color: "#4a5634" },
     { id: "soul", name: "소울", desc: "몸·마음·영혼", sw: "sw-soul", mark: "you", color: "#ddd5ca" }
   ];
   function applySkin(id) {
-    if (id === "grass") id = "swiss";
+    if (id === "grass") id = "swiss"; if (!id || id === "pop" || id === "pink") id = "vivid"; if (id === "ocean") id = "moss";
     const sk = SKINS.find((x) => x.id === id) || SKINS[0];
-    if (sk.id === "pop") delete document.documentElement.dataset.skin; else document.documentElement.dataset.skin = sk.id;
+    document.documentElement.dataset.skin = sk.id;
     document.querySelector('meta[name="theme-color"]')?.setAttribute("content", sk.color);
     return sk.id;
   }
-  let skin = "pop"; try { skin = localStorage.getItem("ledger.skin") || "pop"; } catch (e) {}
+  let skin = "vivid"; try { skin = localStorage.getItem("ledger.skin") || "vivid"; } catch (e) {}
   skin = applySkin(skin);
   const $ = (id) => document.getElementById(id);
   const clone = (o) => JSON.parse(JSON.stringify(o));
@@ -701,6 +804,7 @@ html[data-skin="ocean"] .yf-txt h3 { font-family: var(--display); }
           for (const sid of ["fixed", "card"]) { const s0 = st.config.sections.find((x) => x.id === sid), s1 = DEFAULT_CONFIG.sections.find((x) => x.id === sid); if (s0 && s1) s0.items = clone(s1.items); }
           st.config.v = 2; setTimeout(() => save("config"), 0);
         }
+        { const c = st.config.sections.find((x) => x.id === "card"); if (c && c.name === "카드값 (변동지출)") { c.name = "변동지출"; setTimeout(() => save("config"), 0); } }
         splitBanks();
       }
       else if (id === "profile" && d) st.profile = clone(d);
@@ -726,7 +830,8 @@ html[data-skin="ocean"] .yf-txt h3 { font-family: var(--display); }
     let otherA = 0, otherG = 0;
     for (const s of st.config.sections) if (!["save", "fixed", "card"].includes(s.id)) { otherA += t[s.id].a; otherG += t[s.id].g; }
     const nmOf = (id, f) => (st.config.sections.find((x) => x.id === id)?.name || f).replace(/\s*\(.*\)/, "");
-    $("kSave").textContent = nmOf("save", "저축·투자"); $("kFixed").textContent = nmOf("fixed", "고정지출"); $("kCard").textContent = nmOf("card", "카드값");
+    $("kSave").textContent = nmOf("save", "저축·투자"); $("kFixed").textContent = nmOf("fixed", "고정지출"); $("kCard").textContent = nmOf("card", "변동지출");
+    $("obSave").textContent = nmOf("save", "저축"); $("obFixed").textContent = nmOf("fixed", "고정지출"); $("obCard").textContent = nmOf("card", "변동지출");
     $("sumSave").textContent = fmt(save.a);
     $("saveRate").textContent = d.income ? `저축률 ${Math.round(save.a / d.income * 100)}% · 목표 ${fmt(save.g)}` : `목표 ${fmt(save.g)}`;
     $("sumFixed").textContent = fmt(fixed.a + otherA);
@@ -747,9 +852,13 @@ html[data-skin="ocean"] .yf-txt h3 { font-family: var(--display); }
     const spentPct = inc ? Math.round((fixed.a + otherA + card.a) / inc * 100) : 0;
     $("mood").textContent = !inc ? "월 수입부터 적어 볼까요?"
       : left < 0 ? `수입보다 ${fmt(-left)}원 더 나갔어요`
-      : card.g && card.a > card.g ? `카드값이 예산을 ${fmt(card.a - card.g)}원 넘었어요`
+      : card.g && card.a > card.g ? `${nmOf("card", "변동지출")}이 예산을 ${fmt(card.a - card.g)}원 넘었어요`
       : save.g && save.a >= save.g ? `저축 목표 달성! 수입의 ${spentPct}%만 썼어요`
       : `수입의 ${spentPct}% 썼어요 · 아직 여유 있어요`;
+    { const spentAll = segs[0] + segs[1] + segs[2], ratio = inc ? Math.min(1, spentAll / inc) : 0;
+      $("plTitle").textContent = fmtSigned(left).replace(/^\+/, "") + "원"; $("plMonth").textContent = st.m + "월";
+      $("plFill").style.width = ratio * 100 + "%"; $("plKnob").style.left = ratio * 100 + "%";
+      $("plSpent").textContent = fmt(spentAll); $("plLeft").textContent = "-" + fmt(Math.max(0, left)); $("plMood").textContent = $("mood").textContent; }
     $("leftPlan").textContent = "계획 기준 " + fmtSigned(plan).replace(/^\+/, "");
     for (const s of st.config.sections) {
       const el = document.querySelector(`[data-tot="${s.id}"]`);
@@ -953,7 +1062,7 @@ html[data-skin="ocean"] .yf-txt h3 { font-family: var(--display); }
     const sum = document.createElement("div"); sum.className = "subsum"; sum.id = "subsum"; sec.appendChild(sum);
     root.appendChild(sec);
     const note = document.createElement("p"); note.className = "note";
-    note.textContent = "구독료는 대부분 카드값에 이미 포함되므로 위 지출 합계에 따로 더하지 않아요. 요금을 적어 두면 월·연간 부담과 해지 시 절약액이 계산됩니다.";
+    note.textContent = "구독료는 대부분 변동지출(카드값)에 이미 포함되므로 위 지출 합계에 따로 더하지 않아요. 요금을 적어 두면 월·연간 부담과 해지 시 절약액이 계산됩니다.";
     root.appendChild(note);
     subTotals();
   }
@@ -1077,7 +1186,7 @@ html[data-skin="ocean"] .yf-txt h3 { font-family: var(--display); }
     }
     wrap.append(left, right); root.appendChild(wrap);
     const note = document.createElement("p"); note.className = "note";
-    note.textContent = "결제수단을 고르면 그 금액이 가계부 탭 카드값의 '실제' 칸에 바로 더해지고, 기록을 지우면 빠져요. 결제수단을 비워 두면 달력에만 남아요.";
+    note.textContent = "결제수단을 고르면 그 금액이 가계부 탭 변동지출의 '실제' 칸에 바로 더해지고, 기록을 지우면 빠져요. 결제수단을 비워 두면 달력에만 남아요.";
     root.appendChild(note);
   }
 
@@ -1229,7 +1338,7 @@ html[data-skin="ocean"] .yf-txt h3 { font-family: var(--display); }
       spec: `<span>${st.y}년 ${st.config.pnl?.short || "단기"} 누적 손익</span><b class="${ytdShort < 0 ? "ng" : ytdShort > 0 ? "ok" : ""}">${fmtSigned(ytdShort)}</b>`,
       record: `<span>${st.m}월 달력 기록</span><b>${cal.length}건</b>`,
       split: `<span>${secName("save", "저축")} 계좌</span><b>${(st.config.sections.find((x) => x.id === "save")?.items || []).length}개</b>`,
-      card: `<span>${st.m}월 ${secName("card", "카드값")} 실제 / 예산</span><b class="${cd.g && cd.a > cd.g ? "ng" : cd.g ? "ok" : ""}">${fmt(cd.a)} / ${fmt(cd.g)}</b>`,
+      card: `<span>${st.m}월 ${secName("card", "변동지출")} 실제 / 예산</span><b class="${cd.g && cd.a > cd.g ? "ng" : cd.g ? "ok" : ""}">${fmt(cd.a)} / ${fmt(cd.g)}</b>`,
       fixed: `<span>${secName("fixed", "고정지출")} / 수입</span><b>${d.income ? Math.round(fx.a / d.income * 100) + "%" : "–"}</b>`,
       subs: (() => { const act = st.subs.filter((x) => x.status !== "cancel"); return `<span>사용 중 구독</span><b>${act.length}개 · 월 ${fmt(act.reduce((a, x) => a + (x.price || 0), 0))}</b>`; })()
     };
@@ -1353,7 +1462,7 @@ html[data-skin="ocean"] .yf-txt h3 { font-family: var(--display); }
       save("config"); msg.style.color = ""; msg.textContent = "기본 목록으로 바꿨어요. 가계부 탭에서 확인하세요.";
       delete b.dataset.c; b.textContent = LBL;
     });
-    const p = document.createElement("p"); p.className = "note"; p.textContent = "기본 목록: 저축·투자 5개, 고정지출(주거비(월세)·대출이자·KB보험), 카드값(카드사 5개). 같은 항목에 넣어 둔 금액과 달력·메모 기록은 그대로 남아요.";
+    const p = document.createElement("p"); p.className = "note"; p.textContent = "기본 목록: 저축·투자 5개, 고정지출(주거비(월세)·대출이자·KB보험), 변동지출(카드사 5개). 같은 항목에 넣어 둔 금액과 달력·메모 기록은 그대로 남아요.";
     box.append(b, msg, p); sec.appendChild(box);
     return sec;
   }
@@ -1448,7 +1557,7 @@ html[data-skin="ocean"] .yf-txt h3 { font-family: var(--display); }
     const sec = document.createElement("section"); sec.className = "sec";
     sec.innerHTML = `<div class="sec-h"><h2>${st.y}년 한눈에 보기</h2><span class="tot">실제 금액 기준</span></div>`;
     const wrap = document.createElement("div"); wrap.className = "scroll";
-    const cols = ["수입", "저축·투자", "고정지출", "카드·변동", "남은 돈", "저축률", "손익(단기)", "손익(중장기)"];
+    const cols = ["수입", "저축·투자", "고정지출", "변동지출", "남은 돈", "저축률", "손익(단기)", "손익(중장기)"];
     let html = `<table class="year"><thead><tr><th>월</th>${cols.map((c) => `<th>${c}</th>`).join("")}</tr></thead><tbody>`;
     const sum = [0, 0, 0, 0, 0, 0, 0, 0];
     for (let m = 1; m <= 12; m++) {
@@ -1519,7 +1628,7 @@ html[data-skin="ocean"] .yf-txt h3 { font-family: var(--display); }
     return tsv(rows);
   }
   function sheetYear() {
-    const rows = [["월", "수입", "저축·투자", "고정지출", "카드·변동", "남은 돈", "실현손익 단기", "실현손익 중장기"]];
+    const rows = [["월", "수입", "저축·투자", "고정지출", "변동지출", "남은 돈", "실현손익 단기", "실현손익 중장기"]];
     for (let m = 1; m <= 12; m++) {
       const d = st.months[key(st.y, m)]; if (!d) { rows.push([`${st.y}-${String(m).padStart(2, "0")}`]); continue; }
       const t = totals(d); let other = 0; for (const s of st.config.sections) if (!["save", "fixed", "card"].includes(s.id)) other += t[s.id].a;
@@ -1571,6 +1680,10 @@ html[data-skin="ocean"] .yf-txt h3 { font-family: var(--display); }
   ["ledger", "cal", "subs", "todo", "year", "more"].forEach((t) => $("t-" + t).addEventListener("click", () => { st.tab = t; try { localStorage.setItem("ledger.tab", t); } catch (e) {} render(); }));
   $("prevM").addEventListener("click", () => { st.fresh = null; st.editKey = null; st.day = 0; if (--st.m < 1) { st.m = 12; st.y--; } render(); });
   $("nextM").addEventListener("click", () => { st.fresh = null; st.editKey = null; st.day = 0; if (++st.m > 12) { st.m = 1; st.y++; } render(); });
+  $("plPrev").addEventListener("click", () => $("prevM").click());
+  $("plNext").addEventListener("click", () => $("nextM").click());
+  $("plMid").addEventListener("click", () => $("t-cal").click());
+  $("plRepeat").addEventListener("click", () => $("copyPrev").click());
   $("editBtn").addEventListener("click", () => { st.edit = !st.edit; st.editKey = null; st.fresh = null; render(); });
   $("income").addEventListener("input", (e) => { cur().income = parse(e.target.value); recalc(); save("month"); });
   $("income").addEventListener("blur", (e) => { const n = parse(e.target.value); e.target.value = n ? fmt(n) : ""; });
